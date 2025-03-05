@@ -2,8 +2,10 @@ import java.sql.*;
 import java.util.*;
 
 public class ConnectDb{
+	
 	public static void main(String[] args){
 			Scanner sc = new Scanner(System.in);
+			
 		try{
 			Class.forName("org.postgresql.Driver");
 			System.out.println("driver Loaded");
@@ -25,7 +27,8 @@ public class ConnectDb{
 			switch(choice){
 //select statement
 				case 1:
-					Statement stmt = con.createStatement();
+					
+		Statement stmt = con.createStatement();
 					String query = "select * from contacts";
 					ResultSet rs = stmt.executeQuery(query);
 
@@ -58,14 +61,14 @@ public class ConnectDb{
 						
 					}
 //number duplicate validation
-					query = "select * from contacts where phone = ?";
-					ps = con.prepareStatement();
-					ps.setString(1,phone);
-					rs = ps.executeQuery();
-					
-					if(!rs){
-						System.out.println("Number already exist");
-					}
+					//query = "select * from contacts where phone = ?";
+					//PreparedStatement ps = con.prepareStatement(query);
+					//ps.setString(1,phone);
+					//rs = ps.executeQuery();
+					//int len = rs.length;
+					//if(len!=0){
+					//	System.out.println("Number already exist");
+					//}
 					
 										
 //email validation
